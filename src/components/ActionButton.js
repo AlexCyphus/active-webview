@@ -1,22 +1,27 @@
-import React from 'react';
-
-function ActionButton({action, text, specId, fixed=false, color}) {
-
-  if (fixed){var classes = "seeMoreButton fixed-button-pos "}
-  else {var classes = "seeMoreButton "}
-
-  if (color == "pink"){color = "pink-background"}
-  else if (color == "blue"){color = "blue-background"}
-
-  return ([
-    <a className="no-underline" onClick={action}>
-      <div className={"seeMoreContainer d-flex justify-content-center "} id={specId}>
-        <div className={classes + color} >
-          <p className="m-0 no-underline px-2">{text.toUpperCase()}</p>
+export default function ActionButton({text, actionHandler, specClass, size, color, close, closeHandler}) {
+  
+    // assign css class
+    if (color == "pink"){color = "pink-background"}
+    else {color = "blue-background"}
+  
+    return ([
+        <div className={specClass}>
+            <a className="undecorated-link" onClick={actionHandler}>
+                <div className="action-button-container">
+                    <div className={"action-button-inner " + color} >
+                    <p className="action-button-inner-text">{text.toUpperCase()}</p>
+                    </div>
+                </div>
+            </a>
+            {close == true ? 
+                <a className="undecorated-link" onClick={actionHandler}>
+                    <div className="close-button">
+                        <p>Close</p>
+                    </div>
+                </a>
+                :
+                null
+            }
         </div>
-      </div>
-    </a>
-  ])
-}
-
-export default ActionButton
+    ])
+  }

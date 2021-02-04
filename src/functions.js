@@ -1,17 +1,21 @@
 import axios from 'axios'
 
-export const tp = (name) => {
+export function tp(name) {
   // set up passed down tp functions
   var NativeApp;
 
   // if on Android
-  if (window.NativeApp){NativeApp = window.NativeApp}
+  if (window.NativeApp){
+    NativeApp = window.NativeApp;
+    this.setState({device: 'Android'})
+  }
   
   // if on iOS
   else if (window.webkit){
     NativeApp = {
-      sendTrackingPoint: (name, val=true) => window.webkit.messageHandlers.sendTrackingPoint.postMessage({name: name, value: val})
+      sendTrackingPoint: (tpname, val=true) => window.webkit.messageHandlers.sendTrackingPoint.postMessage({name: tpname, value: val})
     }
+    this.setState({device: 'iOS'})
   }
   
   // if on web mock version
@@ -19,10 +23,11 @@ export const tp = (name) => {
     NativeApp = {
       sendTrackingPoint: (name) => {console.log(name)}
     }
+    this.setState({device: 'web'})
   }
 
   if (name == undefined){return null}
-  const prefix = "Exp_Grp_"
+  const prefix = "_Grp_"
   name = prefix + name
   NativeApp.sendTrackingPoint(name)
 }

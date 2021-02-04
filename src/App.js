@@ -15,20 +15,23 @@ class App extends React.Component {
     this.state = {
       sliderScreen: 0,
       popup: false,
-      infocard: false
+      infocard: false,
+      device: 'unknown'
     }
     this.handleSliderChange = this.handleSliderChange.bind(this)
+    this.tp = tp.bind(this)
   }
 
   handleSliderChange(desiredSliderScreen){
     this.setState({sliderScreen: desiredSliderScreen})
   }
-
+  
   render(){
     return (
       <div className="App">
-        <button onClick={() => tp('testbtn1')}> testbtn1 </button>
-        <button onClick={() => tp('testbtn2')}> testbtn2 </button>
+        <button onClick={() => this.tp('testbtn1')}> testbtn1 </button>
+        <button onClick={() => this.tp('testbtn2')}> testbtn2 </button>
+        <h1>Device type {this.state.device}</h1>
         <HeaderTitle title={'I am category'}/>
         <Slider 
           title1={"Hello"}

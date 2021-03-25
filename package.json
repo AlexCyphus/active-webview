@@ -1,7 +1,7 @@
 {
   "homepage": "http://alexcyphus.github.io/active-webview",
-  "name": "webview-starter",
-  "version": "0.1.0",
+  "name": "active-webview",
+  "version": "0.1.1",
   "private": true,
   "dependencies": {
     "@testing-library/jest-dom": "^5.11.6",

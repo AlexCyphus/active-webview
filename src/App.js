@@ -51,7 +51,7 @@ class App extends React.Component {
       return (
       <div className="App">
       <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no"></meta>
-      <button onClick={() => this.tp('testbtn1')}> testbtn1 </button>
+      <button onClick={() => this.tp('testbtn1')}> testbtn1!!!! </button>
       <button onClick={() => this.tp('testbtn2')}> testbtn2 </button>
       <div>
         <p className="header-title">currency:</p> <span><pre>{JSON.stringify(this.state.currency)}</pre></span>
@@ -67,7 +67,7 @@ class App extends React.Component {
         handleSliderChange={this.handleSliderChange}
       />
       <Row title="Computer McComputerface" image={"/users/ranika.jpg"} roundImage={true}>
-        <p>Now I can put anything I want in here</p>
+        <p>Now I can put anything I want in here!!!</p>
         <pre>{JSON.stringify(this.state)}</pre>
       </Row>
       <Row title="Computer McComputerface" image={"/users/chelsea.jpg"}>

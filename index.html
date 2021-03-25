@@ -1,22 +1,24 @@
 <!DOCTYPE html>
 <html>
 <body>
-
-<h1>The onclick Event</h1>
-
-<p>The onclick event is used to trigger a function when an element is clicked on.</p>
-
-<p>Click the button to trigger a function that will output "Hello World" in a p element with id="demo".</p>
+@@ -10,29 +11,50 @@ <h1>The onclick Event</h1>
 
 <button onclick="showMyProfile()">MyProfile</button>
 <button onclick="showMyPartners()">Partners</button>
+<button onclick="showMyCurrency()">Currency</button>
+<button onclick="showDarkModeEnabled()">DarkModeEnabled</button>
 
 <p id="my_profile"></p>
 <p id="partners"></p>
+<p id="currency"></p>
+<p id="darkMode"></p>
+
 
 <script>
 var myProfile;
 var myPartners;
+var myCurrency;
+var isDarkModeEnabled;
 
 function setMyProfile(profile) {
     myProfile = profile;
@@ -24,20 +26,28 @@ function setMyProfile(profile) {
 function setMyPartners(partners) {
     myPartners = partners;
 }
+function setCurrency(currency) {
+    myCurrency = currency;
+}
+function setDarkModeEnabled(enabled) {
+    isDarkModeEnabled = enabled;
+}
 function showMyProfile() {
     document.getElementById('my_profile').innerHTML = myProfile;
 }
 function showMyPartners() {
     document.getElementById('partners').innerHTML = myPartners;
 }
+function showMyCurrency() {
+    document.getElementById('currency').innerHTML = myCurrency;
+}
+function showDarkModeEnabled() {
+    document.getElementById('darkMode').innerHTML = isDarkModeEnabled;
+}
 
 window.webkit.messageHandlers.getMyProfile.postMessage({});
 window.webkit.messageHandlers.getMyPartners.postMessage({});
-    
-document.getElementById('my_profile').innerHTML = myProfile;
-document.getElementById('partners').innerHTML = myPartners;
+window.webkit.messageHandlers.getMyCurrency.postMessage({});
+window.webkit.messageHandlers.getDarkModeEnabled.postMessage({});
 
 </script>
-
-</body>
-</html>

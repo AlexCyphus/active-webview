@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html>
 <body>
@@ -10,13 +11,20 @@
 
 <button onclick="showMyProfile()">MyProfile</button>
 <button onclick="showMyPartners()">Partners</button>
+<button onclick="showMyCurrency()">Currency</button>
+<button onclick="showDarkModeEnabled()">DarkModeEnabled</button>
 
 <p id="my_profile"></p>
 <p id="partners"></p>
+<p id="currency"></p>
+<p id="darkMode"></p>
+
 
 <script>
 var myProfile;
 var myPartners;
+var myCurrency;
+var isDarkModeEnabled;
 
 function setMyProfile(profile) {
     myProfile = profile;
@@ -24,15 +32,29 @@ function setMyProfile(profile) {
 function setMyPartners(partners) {
     myPartners = partners;
 }
+function setCurrency(currency) {
+    myCurrency = currency;
+}
+function setDarkModeEnabled(enabled) {
+    isDarkModeEnabled = enabled;
+}
 function showMyProfile() {
     document.getElementById('my_profile').innerHTML = myProfile;
 }
 function showMyPartners() {
     document.getElementById('partners').innerHTML = myPartners;
 }
+function showMyCurrency() {
+    document.getElementById('currency').innerHTML = myCurrency;
+}
+function showDarkModeEnabled() {
+    document.getElementById('darkMode').innerHTML = isDarkModeEnabled;
+}
 
 window.webkit.messageHandlers.getMyProfile.postMessage({});
 window.webkit.messageHandlers.getMyPartners.postMessage({});
+window.webkit.messageHandlers.getMyCurrency.postMessage({});
+window.webkit.messageHandlers.getDarkModeEnabled.postMessage({});
 
 </script>
 
